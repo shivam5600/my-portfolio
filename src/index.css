@@ -211,3 +211,43 @@ body {
     animation: none;
   }
 }
+
+/* ─── Continuous-scroll marquee ──────────────────────────────────────────── */
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track {
+  width: 100%;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation: marquee-left 80s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 80s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none;
+  }
+}

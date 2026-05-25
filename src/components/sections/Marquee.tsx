@@ -1,54 +1,30 @@
-import { useEffect, useRef, useState } from 'react'
 import { toolsRow1, toolsRow2 } from '../../data/tools'
 
+/** Continuous slow horizontal marquee. Each row is the source array tripled so
+ *  translating by exactly -33.333% loops seamlessly (the next copy looks
+ *  identical to the original). Row 1 drifts left, row 2 drifts right. */
 const triple = <T,>(arr: T[]): T[] => [...arr, ...arr, ...arr]
 
 export function Marquee() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
-
-  useEffect(() => {
-    const compute = () => {
-      const el = sectionRef.current
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const sectionTop = window.scrollY + rect.top
-      const raw = (window.scrollY - sectionTop + window.innerHeight) * 0.3
-      setOffset(raw)
-    }
-    compute()
-    window.addEventListener('scroll', compute, { passive: true })
-    window.addEventListener('resize', compute)
-    return () => {
-      window.removeEventListener('scroll', compute)
-      window.removeEventListener('resize', compute)
-    }
-  }, [])
-
-  const row1 = triple(toolsRow1)
-  const row2 = triple(toolsRow2)
-
   return (
     <section
-      ref={sectionRef}
       className="pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden"
       aria-label="Tools and techniques"
     >
-      <Row tiles={row1} translate={offset - 200} />
+      <div className="marquee-track marquee-left">
+        <Row tiles={triple(toolsRow1)} />
+      </div>
       <div className="h-3" />
-      <Row tiles={row2} translate={-(offset - 200)} />
+      <div className="marquee-track marquee-right">
+        <Row tiles={triple(toolsRow2)} />
+      </div>
     </section>
   )
 }
 
-function Row({ tiles, translate }: { tiles: string[]; translate: number }) {
+function Row({ tiles }: { tiles: string[] }) {
   return (
-    <div
-      className="flex gap-3 will-change-transform"
-      style={{
-        transform: `translate3d(${translate}px, 0, 0)`,
-      }}
-    >
+    <div className="flex gap-3 will-change-transform">
       {tiles.map((tile, i) => (
         <Tile key={`${tile}-${i}`} label={tile} />
       ))}
