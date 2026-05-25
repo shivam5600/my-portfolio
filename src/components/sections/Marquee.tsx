@@ -37,11 +37,11 @@ function Tile({ label }: { label: string }) {
     <div
       className="glass-tile rounded-2xl flex items-center justify-center shrink-0"
       style={{
-        width: 'clamp(150px, 22vw, 220px)',
-        height: 'clamp(64px, 9vw, 84px)',
+        width: 'clamp(110px, 18vw, 210px)',
+        height: 'clamp(52px, 7.5vw, 80px)',
       }}
     >
-      <span className="text-haze font-medium uppercase tracking-widest text-[0.65rem] sm:text-xs md:text-sm whitespace-nowrap px-3 sm:px-4">
+      <span className="text-haze font-medium uppercase tracking-widest text-[0.6rem] sm:text-xs md:text-sm whitespace-nowrap px-3 sm:px-4">
         {label}
       </span>
     </div>

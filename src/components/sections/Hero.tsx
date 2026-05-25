@@ -3,7 +3,6 @@ import { FadeIn } from '../ui/FadeIn'
 import { Magnet } from '../ui/Magnet'
 import { ContactButton } from '../ui/ContactButton'
 import { HeroDecor } from '../ui/HeroDecor'
-import { ScrollHint } from '../ui/ScrollHint'
 
 const HEADING = "Hi, i'm Kumar"
 
@@ -86,8 +85,6 @@ export function Hero() {
         </FadeIn>
       </div>
 
-      {/* Mobile-only scroll hint */}
-      <ScrollHint />
     </section>
   )
 }

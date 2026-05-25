@@ -238,11 +238,11 @@ body {
 }
 
 .marquee-left {
-  animation: marquee-left 45s linear infinite;
+  animation: marquee-left 28s linear infinite;
 }
 
 .marquee-right {
-  animation: marquee-right 45s linear infinite;
+  animation: marquee-right 28s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
