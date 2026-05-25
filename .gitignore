@@ -9,3 +9,6 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+public/portrait-3d.backup.png
+.vercel
+

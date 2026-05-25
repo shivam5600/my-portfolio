@@ -72,19 +72,19 @@ body {
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* Used by the hero portrait. Heavy filter + radial mask so the placeholder JPG
-   background fades into the page until the user drops in a clean 3D PNG. */
+/* Used by the hero portrait. Gentle treatment for the AI-rendered clean PNG —
+   light drop-shadow plus a soft edge fade so any tonal mismatch with the page
+   background is invisible. */
 .portrait-blend {
-  filter: contrast(1.05) saturate(0.85) brightness(0.95)
-    drop-shadow(0 25px 60px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6));
   -webkit-mask-image: radial-gradient(
-    ellipse 62% 78% at center,
-    #000 60%,
+    ellipse 80% 92% at center,
+    #000 82%,
     transparent 100%
   );
   mask-image: radial-gradient(
-    ellipse 62% 78% at center,
-    #000 60%,
+    ellipse 80% 92% at center,
+    #000 82%,
     transparent 100%
   );
 }
