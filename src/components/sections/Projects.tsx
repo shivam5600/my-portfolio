@@ -202,19 +202,6 @@ function CaseStudyModal({
           {project.name}
         </h3>
 
-        {project.image && (
-          <div className="rounded-[20px] sm:rounded-[28px] overflow-hidden mb-6 aspect-[16/10] bg-ink">
-            <img
-              src={project.image}
-              alt={`${project.name} UI`}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                ;(e.currentTarget as HTMLImageElement).style.display = 'none'
-              }}
-            />
-          </div>
-        )}
-
         <Block label="Problem" body={project.problem} />
         <Block label="What I did" body={project.whatIDid} />
         <Block label="Impact" body={project.impact} accent />

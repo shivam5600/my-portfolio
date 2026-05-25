@@ -31,16 +31,17 @@ SIZE = "1024x1024"
 
 
 HERO_PROMPT = (
-    "Cute friendly stylized 3D robot mascot character — original design for a "
-    "tech portfolio. Round white-and-chrome metallic head with subtle panel "
-    "seams, two large expressive glowing soft-blue lens eyes, gentle confident "
-    "happy expression with a small smile slot on the face panel, soft "
-    "rubberized neck joint. Sleek modern Pixar-quality industrial design, "
-    "matte and brushed metal textures. Head-and-shoulders composition, "
-    "centred. Plain pure black background. Cinematic dark moody studio "
-    "lighting with soft cool rim light, subtle magenta and teal accent "
-    "reflections. Stylized 3D animation aesthetic. Professional editorial "
-    "portrait quality. 1:1 square crop."
+    "Cute friendly stylized 3D cartoon character portrait of a young Indian "
+    "man in his late 20s, in modern animated film style. Short styled dark "
+    "hair with subtle volume on top, big expressive friendly eyes, gentle "
+    "warm smile, light stubble and short beard, smooth cartoon skin shading. "
+    "Just the head and small hint of shoulders, large head proportions in "
+    "stylized 3D animation aesthetic. Centred. Plain pure black background. "
+    "Soft moody studio lighting with gentle warm rim light, subtle magenta "
+    "and teal reflection accents on the cheek and hair. Octane render, "
+    "ultra-detailed but stylized, no realistic photograph, pure cartoon "
+    "stylization. Professional editorial portrait quality. 1:1 square crop, "
+    "head centred."
 )
 
 
