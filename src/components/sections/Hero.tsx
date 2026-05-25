@@ -3,6 +3,7 @@ import { FadeIn } from '../ui/FadeIn'
 import { Magnet } from '../ui/Magnet'
 import { ContactButton } from '../ui/ContactButton'
 import { HeroDecor } from '../ui/HeroDecor'
+import { ScrollHint } from '../ui/ScrollHint'
 
 const HEADING = "Hi, i'm Kumar"
 
@@ -10,14 +11,14 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative h-screen flex flex-col px-6 md:px-10"
+      className="relative h-[100svh] md:h-screen flex flex-col px-6 md:px-10"
       style={{ overflowX: 'clip' }}
     >
       {/* Floating analytics icons + skill chips around the hero */}
       <HeroDecor />
 
       {/* Heading + role subline anchored to top */}
-      <div className="pt-24 sm:pt-28 md:pt-32 relative z-20 w-full">
+      <div className="pt-20 sm:pt-24 md:pt-32 relative z-20 w-full">
         <div className="overflow-hidden w-full">
           <AnimatedHeading text={HEADING} />
         </div>
@@ -25,20 +26,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-haze/75 font-medium uppercase tracking-[0.25em] text-center mt-3 sm:mt-4"
-          style={{ fontSize: 'clamp(0.7rem, 1.1vw, 1.05rem)' }}
+          className="text-haze/75 font-medium uppercase tracking-[0.25em] text-center mt-2 sm:mt-4"
+          style={{ fontSize: 'clamp(0.65rem, 1.1vw, 1.05rem)' }}
         >
           Lead Product Analyst <span className="text-haze/40 mx-2">·</span>{' '}
           IIT BHU Grad
         </motion.p>
       </div>
 
-      {/* Portrait — flex-centered in the remaining space (bulletproof centring) */}
-      <div className="flex-1 flex items-center justify-center relative z-10 min-h-0">
+      {/* Portrait — flex-centered in the remaining space */}
+      <div className="flex-1 flex items-center justify-center relative z-10 min-h-0 py-4 sm:py-6">
         <FadeIn
           delay={0.7}
           y={30}
-          className="w-[200px] xs:w-[240px] sm:w-[280px] md:w-[340px] lg:w-[400px] pointer-events-none"
+          className="w-[160px] xs:w-[200px] sm:w-[260px] md:w-[320px] lg:w-[380px] pointer-events-none"
         >
           <Magnet padding={350} strength={5}>
             <motion.div
@@ -67,11 +68,11 @@ export function Hero() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative z-20 flex justify-between items-end pb-7 sm:pb-8 md:pb-10 gap-4">
+      <div className="relative z-20 flex justify-between items-end pb-10 sm:pb-8 md:pb-10 gap-4">
         <FadeIn delay={0.45} y={20}>
           <p
-            className="text-haze font-light uppercase tracking-wide leading-snug max-w-[200px] sm:max-w-[260px] md:max-w-[340px]"
-            style={{ fontSize: 'clamp(0.72rem, 1.15vw, 1.1rem)' }}
+            className="text-haze font-light uppercase tracking-wide leading-snug max-w-[180px] sm:max-w-[260px] md:max-w-[340px]"
+            style={{ fontSize: 'clamp(0.68rem, 1.15vw, 1.1rem)' }}
           >
             Building the tools,
             <br />
@@ -84,6 +85,9 @@ export function Hero() {
           <ContactButton />
         </FadeIn>
       </div>
+
+      {/* Mobile-only scroll hint */}
+      <ScrollHint />
     </section>
   )
 }
@@ -96,9 +100,6 @@ function AnimatedHeading({ text }: { text: string }) {
       aria-label={text}
     >
       {chars.map((char, i) => {
-        // Spaces become fixed-width inline-block spacers so the gap matches the
-        // reference instead of inheriting the default-space width at 14vw,
-        // which renders ~80 px on desktop and looks like a hard split.
         if (char === ' ') {
           return (
             <span
