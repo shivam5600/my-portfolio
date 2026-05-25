@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FadeIn } from '../ui/FadeIn'
 import { Magnet } from '../ui/Magnet'
 import { ContactButton } from '../ui/ContactButton'
+import { HeroDecor } from '../ui/HeroDecor'
 
 const HEADING = "Hi, i'm Kumar"
 
@@ -12,6 +13,9 @@ export function Hero() {
       className="relative h-screen flex flex-col px-6 md:px-10"
       style={{ overflowX: 'clip' }}
     >
+      {/* Decorative floating analytics icons + impact chips */}
+      <HeroDecor />
+
       {/* Heading + role subline anchored to top */}
       <div className="pt-24 sm:pt-28 md:pt-32 relative z-20 w-full">
         <div className="overflow-hidden w-full">
@@ -29,21 +33,34 @@ export function Hero() {
         </motion.p>
       </div>
 
-      {/* Portrait — centred horizontally, vertically below the heading */}
+      {/* Portrait — true centre of hero with ambient figure-8 drift */}
       <FadeIn
         delay={0.7}
         y={30}
-        className="absolute left-1/2 -translate-x-1/2 z-10 top-[64%] -translate-y-1/2 w-[200px] xs:w-[230px] sm:w-[280px] md:w-[340px] lg:w-[400px] pointer-events-none"
+        className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 z-10 w-[220px] xs:w-[260px] sm:w-[300px] md:w-[360px] lg:w-[420px] pointer-events-none"
       >
-        <Magnet padding={180} strength={4}>
-          <motion.img
-            src="/portrait-3d.png"
-            alt="Kumar Shivam"
-            className="w-full h-auto select-none portrait-blend"
-            draggable={false}
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
-          />
+        <Magnet padding={300} strength={6}>
+          <motion.div
+            animate={{
+              x: [0, 18, 0, -14, 0],
+              y: [0, -10, -16, -6, 0],
+            }}
+            transition={{
+              duration: 12,
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
+            style={{ willChange: 'transform' }}
+          >
+            <motion.img
+              src="/portrait-3d.png"
+              alt="Kumar Shivam"
+              className="w-full h-auto select-none portrait-blend"
+              draggable={false}
+              animate={{ y: [0, -6, 0], rotate: [-1.2, 1.2, -1.2] }}
+              transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity }}
+            />
+          </motion.div>
         </Magnet>
       </FadeIn>
 
@@ -69,9 +86,7 @@ export function Hero() {
   )
 }
 
-/** Per-character reveal: each letter slides up + flips from rotateX -80 with
- *  a small stagger. The whole heading still uses the .hero-heading gradient via
- *  per-span class so background-clip:text stays correct. */
+/** Per-character reveal: each letter slides up + flips with a small stagger. */
 function AnimatedHeading({ text }: { text: string }) {
   const chars = Array.from(text)
   return (
@@ -93,7 +108,7 @@ function AnimatedHeading({ text }: { text: string }) {
           }}
           style={{ transformOrigin: 'bottom' }}
         >
-          {char === ' ' ? ' ' : char}
+          {char === ' ' ? ' ' : char}
         </motion.span>
       ))}
     </h1>
