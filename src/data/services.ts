@@ -10,7 +10,7 @@ export const services: Service[] = [
     number: '01',
     title: 'AI Product Builder · LLM-Assisted Development',
     description:
-      'Ship production tools end-to-end via LLM-assisted development (spec → plan → implement → deploy). Two internal platforms live in prod at media.net — Hermes and Prog Data Discovery — built UI + analytics logic this way. The differentiator most analyst-track candidates do not have.',
+      'Ship production tools end-to-end via LLM-assisted development (spec → plan → implement → deploy). Two internal platforms live in prod at media.net: Hermes and Prog Data Discovery, both built UI + analytics logic this way. The differentiator most analyst-track candidates do not have.',
   },
   {
     number: '02',
@@ -28,7 +28,7 @@ export const services: Service[] = [
     number: '04',
     title: 'Forecasting, RCA & Anomaly Detection',
     description:
-      'Hybrid ML projection models in prod (LightGBM + XGBoost + Prophet) running hourly, surfacing $300K/mo anomalies in bid-level data. The DS-leaning skill set that fits PM-Analytics tracks at Uber, Doordash, Swiggy, Razorpay — pricing, demand-signal, marketplace dynamics.',
+      'Hybrid ML projection models in prod (LightGBM + XGBoost + Prophet) running hourly, surfacing $300K/mo anomalies in bid-level data. The DS-leaning skill set that fits PM-Analytics tracks at Uber, Doordash, Swiggy, Razorpay: pricing, demand-signal, marketplace dynamics.',
   },
   {
     number: '05',

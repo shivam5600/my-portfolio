@@ -3,6 +3,7 @@ import { FadeIn } from '../ui/FadeIn'
 import { Magnet } from '../ui/Magnet'
 import { ContactButton } from '../ui/ContactButton'
 import { HeroDecor } from '../ui/HeroDecor'
+import { ScrollHint } from '../ui/ScrollHint'
 
 const HEADING = "Hi, i'm Kumar"
 
@@ -66,8 +67,8 @@ export function Hero() {
         </FadeIn>
       </div>
 
-      {/* Bottom bar */}
-      <div className="relative z-20 flex justify-between items-end pb-10 sm:pb-8 md:pb-10 gap-4">
+      {/* Bottom bar — extra pb on mobile to leave room for the ScrollHint */}
+      <div className="relative z-20 flex justify-between items-end pb-14 sm:pb-8 md:pb-10 gap-4">
         <FadeIn delay={0.45} y={20}>
           <p
             className="text-haze font-light uppercase tracking-wide leading-snug max-w-[180px] sm:max-w-[260px] md:max-w-[340px]"
@@ -85,6 +86,7 @@ export function Hero() {
         </FadeIn>
       </div>
 
+      <ScrollHint />
     </section>
   )
 }

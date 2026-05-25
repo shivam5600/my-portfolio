@@ -21,9 +21,9 @@ export const projects: Project[] = [
     shortBlurb:
       'One-click field coverage + cross-entity comparison across EBDA / ADX / Prebid / TAM. Replaces hours of Kibana digging.',
     problem:
-      'Product + Data Science teams were burning hours on every bid-request debugging session — manual Kibana queries, copy-paste field coverage checks across 4 ad-exchange integrations (EBDA, ADX, Prebid, TAM), and no canonical way to compare entities side-by-side.',
+      'Product + Data Science teams were burning hours on every bid-request debugging session: manual Kibana queries, copy-paste field coverage checks across 4 ad-exchange integrations (EBDA, ADX, Prebid, TAM), and no canonical way to compare entities side-by-side.',
     whatIDid:
-      'Designed and shipped a self-serve analytics platform end-to-end via LLM-assisted development — UI, core analytics logic, deployment, ownership. One click = field coverage, distribution, cross-entity comparison. Iterated with the actual debugging users in the loop.',
+      'Designed and shipped a self-serve analytics platform end-to-end via LLM-assisted development: UI, core analytics logic, deployment, ownership. One click = field coverage, distribution, cross-entity comparison. Iterated with the actual debugging users in the loop.',
     impact:
       'Live in production for internal Data Science + Product teams at media.net. Replaced what used to be ~30 min of manual digging with seconds of UI-driven analysis. Now the canonical bid-request debugging surface across teams.',
     image: '/projects/prog-data-discovery.png',
@@ -57,13 +57,13 @@ export const projects: Project[] = [
     number: '03',
     slug: 'hermes',
     category: 'Internal Tool · media.net',
-    name: 'Hermes — VM + Notebook Scheduler',
+    name: 'Hermes: VM + Notebook Scheduler',
     shortBlurb:
       'Hosted internal platform: scheduler + VM file manager with Google SSO, file sharing, self-redeploy.',
     problem:
       'Analytics + DS teams had no shared place to schedule notebook pipelines, manage VM files, or share work. Each team rolled its own cron + papermill stack; nothing was reusable; debugging meant SSHing into individual VMs.',
     whatIDid:
-      'Designed and shipped Hermes — a hosted platform with Google SSO, per-user folder isolation, DAG-based pipelines with a Drawflow visual editor, papermill execution, file-sharing, and a self-redeploy pipeline that updates the platform from inside itself. End-to-end LLM-assisted build.',
+      'Designed and shipped Hermes, a hosted platform with Google SSO, per-user folder isolation, DAG-based pipelines with a Drawflow visual editor, papermill execution, file-sharing, and a self-redeploy pipeline that updates the platform from inside itself. End-to-end LLM-assisted build.',
     impact:
       'Live for internal teams at media.net since May 2026. Run history per pipeline as the audit log. Tier-1 ops teams are migrating their hourly cost-projection workloads onto it. ~v7.15 in production, audit-checklist hardened.',
     image: '/projects/hermes.png',
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     whatIDid:
       'Audited cluster utilisation patterns, redesigned cluster policies (size, idle-shutdown, spot preference), restructured job configurations, and shifted orchestration patterns toward burst-friendly scheduling. Worked cross-functionally with DE + DevOps.',
     impact:
-      'Reduced infrastructure spend by 61% (~$135K / month — ~$1.6M/year). CEO-recognized Best Project Award 2022-23. Patterns reused across product teams as the standard.',
+      'Reduced infrastructure spend by 61% (~$135K / month, ~$1.6M/year). CEO-recognized Best Project Award 2022-23. Patterns reused across product teams as the standard.',
     image: '/projects/mpl-cost.png',
     art: {
       primary: 'linear-gradient(135deg, #1a0a2e 0%, #581c87 100%)',
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     shortBlurb:
       'Funnel + cohort decomposition on USA acquisition → first-deposit (~3% baseline).',
     problem:
-      'MPL USA first-deposit conversion sat at ~3% — well below benchmark. Friction points along the funnel were ungrouped, and the team did not have a playbook for time-bound deposit incentives.',
+      'MPL USA first-deposit conversion sat at ~3%, well below benchmark. Friction points along the funnel were ungrouped, and the team did not have a playbook for time-bound deposit incentives.',
     whatIDid:
       'Ran funnel + cohort decomposition on the acquisition → first-deposit journey across US sign-up cohorts. Pinpointed the highest-leverage friction step. Designed and shipped a 24-hour time-bound deposit-incentive feature; A/B-tested it with statistical guardrails.',
     impact:

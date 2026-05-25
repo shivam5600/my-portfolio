@@ -87,7 +87,7 @@ export function About() {
         </FadeIn>
 
         <AnimatedText
-          text="I'm a Lead Product Analyst with 4+ years of turning ambiguous revenue questions into testable hypotheses across billions of bid-level rows. IIT BHU '23 — currently at media.net (contextual ads at web scale); previously MPL and Apna. I build the tools, ship the experiments, and own the impact end to end. Let's build something that moves a metric."
+          text="I'm a Lead Product Analyst with 4+ years of turning ambiguous revenue questions into testable hypotheses across billions of bid-level rows. IIT BHU '23. Currently at media.net (contextual ads at web scale); previously MPL and Apna. I build the tools, ship the experiments, and own the impact end to end. Let's build something that moves a metric."
           className="text-haze font-medium text-center leading-relaxed max-w-[640px] mx-auto"
         />
       </div>
