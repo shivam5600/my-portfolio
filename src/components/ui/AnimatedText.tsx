@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 
-/** Word-by-word entrance — each word slides up + un-blurs as the section enters
- *  the viewport. Faster cadence so the paragraph reads quickly without making
- *  users wait. Gap between words is a margin (not a rendered space character)
- *  so inline-block whitespace collapse can't strip it. */
+/** Word-by-word entrance — visible motion, fires once when the section
+ *  enters the viewport, then text stays put. Each word slides up from y:40,
+ *  scales from 0.92, un-blurs from 8px, with a 40ms stagger so the wave is
+ *  noticeable but the whole paragraph is settled in ~1 s. Gap between words
+ *  is margin (not a rendered space) so inline-block whitespace can't strip it. */
 export function AnimatedText({
   text,
   className = '',
@@ -17,10 +18,10 @@ export function AnimatedText({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.025 } },
+        visible: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } },
       }}
       aria-label={text}
     >
@@ -28,10 +29,10 @@ export function AnimatedText({
         <motion.span
           key={i}
           variants={{
-            hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
-            visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+            hidden: { opacity: 0, y: 40, scale: 0.92, filter: 'blur(8px)' },
+            visible: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' },
           }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{
             display: 'inline-block',
             marginRight: i < words.length - 1 ? '0.28em' : 0,
