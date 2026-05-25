@@ -5,9 +5,12 @@ import { FadeIn } from '../ui/FadeIn'
 
 export function Journey() {
   const ref = useRef<HTMLDivElement>(null)
+  // Complete the timeline fill + node activation by the time the section is
+  // ~70 % scrolled through — viewers shouldn't have to scroll past the section
+  // to see all dots filled.
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.85', 'end 0.4'],
+    offset: ['start 0.95', '0.7 0.15'],
   })
 
   return (
@@ -131,9 +134,11 @@ function NodeDot({
 }
 
 function Node({ milestone, index, progress, total }: NodeProps) {
-  const threshold = (index + 0.5) / total
-  const dotScale = useTransform(progress, [threshold - 0.12, threshold], [0.7, 1])
-  const dotOpacity = useTransform(progress, [threshold - 0.12, threshold], [0.4, 1])
+  // Each dot lights up earlier so by 70 % section-scroll every node is at
+  // full brightness and the timeline reads complete.
+  const threshold = (index + 1) / (total + 1)
+  const dotScale = useTransform(progress, [threshold - 0.15, threshold], [0.7, 1])
+  const dotOpacity = useTransform(progress, [threshold - 0.15, threshold], [0.4, 1])
   return (
     <FadeIn delay={index * 0.08} y={20} className="flex flex-col items-center text-center">
       <NodeDot
@@ -161,9 +166,11 @@ function Node({ milestone, index, progress, total }: NodeProps) {
 }
 
 function NodeMobile({ milestone, index, progress, total }: NodeProps) {
-  const threshold = (index + 0.5) / total
-  const dotScale = useTransform(progress, [threshold - 0.12, threshold], [0.7, 1])
-  const dotOpacity = useTransform(progress, [threshold - 0.12, threshold], [0.4, 1])
+  // Each dot lights up earlier so by 70 % section-scroll every node is at
+  // full brightness and the timeline reads complete.
+  const threshold = (index + 1) / (total + 1)
+  const dotScale = useTransform(progress, [threshold - 0.15, threshold], [0.7, 1])
+  const dotOpacity = useTransform(progress, [threshold - 0.15, threshold], [0.4, 1])
   return (
     <FadeIn delay={index * 0.06} y={20} className="relative">
       <div className="absolute -left-12 top-0">

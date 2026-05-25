@@ -18,7 +18,7 @@ export function AnimatedText({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } },
