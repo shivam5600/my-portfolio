@@ -115,3 +115,99 @@ body {
   transform-origin: 0%;
   width: 100%;
 }
+
+/* ─── Animated background — antigravity-style ────────────────────────────── */
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.orb-1 {
+  top: -10%;
+  left: -10%;
+  width: 70vmin;
+  height: 70vmin;
+  background: radial-gradient(circle at center, #7621b0 0%, transparent 70%);
+  animation: orb-drift-1 38s ease-in-out infinite;
+}
+
+.orb-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 80vmin;
+  height: 80vmin;
+  background: radial-gradient(circle at center, #be4c00 0%, transparent 70%);
+  animation: orb-drift-2 46s ease-in-out infinite;
+  opacity: 0.13;
+}
+
+.orb-3 {
+  top: 35%;
+  left: 50%;
+  width: 55vmin;
+  height: 55vmin;
+  background: radial-gradient(circle at center, #b600a8 0%, transparent 70%);
+  animation: orb-drift-3 34s ease-in-out infinite;
+  opacity: 0.10;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes orb-drift-1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30vw, 22vh);
+  }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-26vw, -18vh);
+  }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-20%, -30%) scale(1.15);
+  }
+}
+
+.grid-mesh {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(215, 226, 234, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 226, 234, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: -1px -1px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 75%);
+  opacity: 0.55;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    rgba(12, 12, 12, 0.55) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none;
+  }
+}

@@ -1,6 +1,9 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { useRef } from 'react'
 
+/** Scroll-driven word-by-word opacity reveal. Each word fades from 0.2 → 1 as
+ *  it crosses the scroll progress threshold. Spaces are real DOM whitespace so
+ *  word-wrap and line breaks behave like a normal paragraph. */
 export function AnimatedText({
   text,
   className = '',
@@ -11,26 +14,24 @@ export function AnimatedText({
   const ref = useRef<HTMLParagraphElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.8', 'end 0.2'],
+    offset: ['start 0.85', 'end 0.2'],
   })
 
-  const chars = Array.from(text)
+  const words = text.split(' ')
+  const total = words.length
 
   return (
-    <p
-      ref={ref}
-      className={`relative ${className}`}
-      aria-label={text}
-    >
-      {chars.map((char, i) => {
-        const start = i / chars.length
-        const end = start + 1 / chars.length
+    <p ref={ref} className={className} aria-label={text}>
+      {words.map((word, i) => {
+        const start = i / total
+        const end = Math.min(1, start + 1.5 / total)
         return (
-          <Char
+          <Word
             key={i}
-            char={char}
+            word={word}
             progress={scrollYProgress}
             range={[start, end]}
+            isLast={i === total - 1}
           />
         )
       })}
@@ -38,24 +39,24 @@ export function AnimatedText({
   )
 }
 
-function Char({
-  char,
+function Word({
+  word,
   progress,
   range,
+  isLast,
 }: {
-  char: string
-  progress: ReturnType<typeof useScroll>['scrollYProgress']
+  word: string
+  progress: MotionValue<number>
   range: [number, number]
+  isLast: boolean
 }) {
-  const opacity = useTransform(progress, range, [0.2, 1])
+  const opacity = useTransform(progress, range, [0.18, 1])
   return (
-    <span className="relative inline-block">
-      <span className="opacity-0" aria-hidden>
-        {char}
-      </span>
-      <motion.span style={{ opacity }} className="absolute left-0 top-0">
-        {char}
+    <>
+      <motion.span style={{ opacity }} className="inline">
+        {word}
       </motion.span>
-    </span>
+      {!isLast && ' '}
+    </>
   )
 }

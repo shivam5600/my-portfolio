@@ -1,3 +1,4 @@
+import { AnimatedBackground } from './components/ui/AnimatedBackground'
 import { CursorGlow } from './components/ui/CursorGlow'
 import { ScrollProgress } from './components/ui/ScrollProgress'
 import { SmoothScroll } from './components/ui/SmoothScroll'
@@ -14,9 +15,10 @@ import { Footer } from './components/sections/Footer'
 export default function App() {
   return (
     <SmoothScroll>
+      <AnimatedBackground />
       <ScrollProgress />
       <CursorGlow />
-      <main className="bg-ink text-haze font-kanit relative" style={{ overflowX: 'clip' }}>
+      <main className="text-haze font-kanit relative" style={{ overflowX: 'clip' }}>
         <Navbar />
         <Hero />
         <Marquee />
