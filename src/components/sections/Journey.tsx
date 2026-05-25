@@ -81,15 +81,18 @@ function NodeDot({
   size = 'lg',
   logo,
   org,
+  initials,
 }: {
   scale: MotionValue<number>
   opacity: MotionValue<number>
   size?: 'sm' | 'lg'
   logo?: string
   org: string
+  initials?: string
 }) {
   const dim = size === 'lg' ? 'w-16 h-16' : 'w-9 h-9'
   const inner = size === 'lg' ? 'w-12 h-12' : 'w-6 h-6'
+  const label = (initials ?? org.slice(0, 4)).toUpperCase()
   return (
     <motion.div
       className={`${dim} rounded-full border-2 border-haze bg-ink flex items-center justify-center relative shrink-0`}
@@ -113,10 +116,14 @@ function NodeDot({
           />
         ) : null}
         <div
-          className="w-full h-full hidden items-center justify-center text-haze/70 font-medium text-[0.55rem] uppercase tracking-widest px-1 text-center"
-          style={{ display: logo ? 'none' : 'flex' }}
+          className="w-full h-full hidden items-center justify-center text-haze/80 font-medium uppercase tracking-tight text-center"
+          style={{
+            display: logo ? 'none' : 'flex',
+            fontSize: size === 'lg' ? '0.62rem' : '0.5rem',
+            lineHeight: 1,
+          }}
         >
-          {org.slice(0, 4)}
+          {label}
         </div>
       </div>
     </motion.div>
@@ -135,6 +142,7 @@ function Node({ milestone, index, progress, total }: NodeProps) {
         size="lg"
         logo={milestone.logo}
         org={milestone.org}
+        initials={milestone.initials}
       />
       <div className="mt-4 hero-heading font-black text-lg lg:text-xl tracking-tight whitespace-nowrap">
         {milestone.year}
@@ -165,6 +173,7 @@ function NodeMobile({ milestone, index, progress, total }: NodeProps) {
           size="sm"
           logo={milestone.logo}
           org={milestone.org}
+          initials={milestone.initials}
         />
       </div>
       <div className="hero-heading font-black text-xl tracking-tight">{milestone.year}</div>

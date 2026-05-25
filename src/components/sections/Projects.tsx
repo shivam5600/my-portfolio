@@ -176,6 +176,7 @@ function CaseStudyModal({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="fixed inset-0 z-[60] bg-ink/85 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 overflow-y-auto"
+      data-lenis-prevent
       onClick={onClose}
     >
       <motion.div

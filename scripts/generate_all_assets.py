@@ -51,60 +51,68 @@ def proj(slug: str, prompt: str) -> dict:
 PROJECT_IMAGES = [
     proj(
         "prog-data-discovery",
-        "Sleek dark-themed analytics dashboard interface for ad-tech bid-level "
-        "data discovery. Show: field-coverage bar chart, a comparison matrix with "
-        "abstract metric chips, sidebar nav with stylized icons, soft glow accents "
-        "in electric purple and magenta. Plain dark slate background (#0C0C0C). "
-        "Octane render, modern devtool aesthetic, isometric perspective, no "
-        "readable text. 16:10 widescreen.",
+        "Sleek dark analytics dashboard for ad-tech bid-data discovery. Visible "
+        "elements: large headline 'FIELD COVERAGE', four exchange tag chips reading "
+        "'EBDA', 'ADX', 'PREBID', 'TAM' in a top row, a percentage-style coverage "
+        "bar chart below with numbers like '100%', '94%', '88%', '76%', a side-by-"
+        "side comparison table, and a side panel labelled 'PROG DATA DISCOVERY'. "
+        "Electric purple and magenta accent colors on plain dark slate background. "
+        "Modern devtool aesthetic, Octane render. 16:10 widescreen. Big legible "
+        "text where shown.",
     ),
     proj(
         "user-journey",
-        "Dark cohort analytics dashboard. Show: stacked-bar user segmentation "
-        "split into Pre / D0 / Post windows, conversion funnel chart, behavioural "
-        "segment donut chart, KPI cards with abstract numbers. Cool teal and cyan "
-        "accents on plain dark background. Modern data-viz design. Octane render. "
-        "No readable text, no humans, isometric perspective. 16:10.",
+        "Dark cohort analytics dashboard. Visible: large headline 'TIER-1 USER "
+        "JOURNEY', stacked-bar user segmentation split into three columns labelled "
+        "'PRE', 'D0', 'POST', a prominent KPI card reading '$3M / yr OPPORTUNITY', "
+        "another callout reading '21% → 6% search-bidder share', '$4.91 RPM GAP' "
+        "metric chip, behavioural segment donut chart with 7 wedges. Cool teal and "
+        "cyan accents on dark background. Octane render. 16:10. Big legible text.",
     ),
     proj(
         "hermes",
-        "Dark notebook scheduler tool interface: DAG visual editor with connected "
-        "rectangular nodes and curved edges in centre, vertical sidebar with file "
-        "browser + run history. Code-editor aesthetic with deep purple, slate, and "
-        "soft magenta highlights. Plain dark background. Modern devtool look. "
-        "Octane render, isometric perspective. No readable text. 16:10.",
+        "Dark notebook scheduler tool interface labelled 'HERMES' in the top bar. "
+        "Centre: DAG visual editor with connected rectangular pipeline nodes and "
+        "curved edges. Sidebar lists 'PIPELINES' and 'RUN HISTORY' sections. A "
+        "version badge reads 'v7.15'. Deep purple, slate, soft magenta highlights. "
+        "Modern devtool look. Octane render, isometric perspective. 16:10. Big "
+        "legible text on the visible labels.",
     ),
     proj(
         "overbidding",
-        "Dark BI dashboard showing programmatic bid anomaly detection. Visible: "
-        "revenue impact line chart trending up, anomaly callout badges, A/B test "
-        "treatment-vs-control bar chart, large revenue-lift KPI card. Warm orange "
-        "and gold accent colors on plain dark navy background. Octane render, "
-        "modern fintech-style data-viz. No readable text. 16:10.",
+        "Dark BI dashboard with revenue impact line chart trending up, anomaly "
+        "callout badges over the spikes, A/B treatment-vs-control bar chart. "
+        "Large headline KPI card reads '+$1.5M / YEAR'. Secondary callout reads "
+        "'-35% OVERBIDDING'. A side panel shows '+$125K / MONTH'. Warm orange and "
+        "gold accents on plain dark navy background. Octane render, modern "
+        "fintech-style data-viz. 16:10. Big legible text on the visible labels.",
     ),
     proj(
         "mpl-churn",
-        "Dark mobile gaming analytics dashboard. Visible: D7/D30 retention curves, "
-        "cohort waterfall chart, real-time nudge configuration panel with toggle "
-        "switches, large +10% CM1 KPI card. Emerald and teal accents on plain dark "
-        "background. Modern game-ops aesthetic. Octane render. No readable text. "
-        "16:10.",
+        "Dark mobile gaming analytics dashboard. Visible: D7/D30 retention curves "
+        "labelled, a 'LOSING STREAK' trigger panel with '4 CONSECUTIVE LOSSES' "
+        "threshold slider, a large KPI card reading '+10% CM1', side panel labelled "
+        "'NUDGE EXPERIMENT'. Emerald and teal accents on plain dark background. "
+        "Modern game-ops aesthetic. Octane render. 16:10. Big legible text on the "
+        "visible labels.",
     ),
     proj(
         "mpl-cost",
-        "Dark cloud-infrastructure cost dashboard. Visible: cluster usage area "
-        "chart, cost trend line falling steeply, large 61% reduction callout card, "
-        "optimization recommendations side panel. Magenta and purple gradient "
-        "accents on plain dark background. DevOps SRE aesthetic. Octane render. "
-        "No readable text. 16:10.",
+        "Dark cloud-infrastructure cost dashboard. Visible: 'AWS / DATABRICKS' "
+        "cluster usage area chart, cost trend line falling steeply, large "
+        "circular KPI reading '-61%' very prominently, '-$135K / MONTH' callout "
+        "card, optimization recommendations side panel. Magenta and purple "
+        "gradient accents on plain dark background. DevOps SRE aesthetic. Octane "
+        "render. 16:10. Big legible text on the visible labels.",
     ),
     proj(
         "mpl-deposit",
-        "Dark funnel conversion dashboard for first-deposit flow. Visible: 5-stage "
-        "acquisition funnel chart with conversion percentages, before/after A/B "
-        "comparison bars, large conversion-lift KPI card. Emerald green accents on "
-        "plain dark background. Modern fintech-style. Octane render. No readable "
-        "text. 16:10.",
+        "Dark funnel conversion dashboard for first-deposit flow. Visible: large "
+        "headline reads 'FIRST DEPOSIT CONVERSION', a 5-stage acquisition funnel "
+        "chart, a giant before/after KPI card reading '3% → 8%', a '+5x LIFT' "
+        "badge, a side panel labelled '24-HOUR INCENTIVE'. Emerald green accents "
+        "on plain dark background. Modern fintech aesthetic. Octane render. 16:10. "
+        "Big legible text on the visible labels.",
     ),
 ]
 

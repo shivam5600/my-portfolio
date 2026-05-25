@@ -10,5 +10,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 public/portrait-3d.backup.png
+public/portrait-3d.opaque.backup.png
 .vercel
 

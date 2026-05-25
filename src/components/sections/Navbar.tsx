@@ -36,10 +36,10 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <a
             href="#top"
-            className="hero-heading font-black text-2xl md:text-3xl tracking-tight"
-            aria-label="Home"
+            className="hero-heading font-black tracking-tight whitespace-nowrap text-base sm:text-lg md:text-xl"
+            aria-label="Home — Kumar Shivam"
           >
-            KS
+            KUMAR SHIVAM
           </a>
 
           {/* Tablet/desktop links */}
@@ -85,7 +85,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
           >
             <div className="flex items-center justify-between px-5 pt-5">
-              <span className="hero-heading font-black text-2xl tracking-tight">KS</span>
+              <span className="hero-heading font-black text-base tracking-tight">KUMAR SHIVAM</span>
               <button
                 onClick={(e) => {
                   e.stopPropagation()

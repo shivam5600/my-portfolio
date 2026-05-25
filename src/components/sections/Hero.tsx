@@ -29,7 +29,7 @@ export function Hero() {
         {/* Massive heading */}
         <div className="overflow-hidden w-full relative z-20 mt-6 sm:mt-4 md:-mt-5">
           <FadeIn delay={0.15} y={40}>
-            <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
+            <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[14vw]">
               Hi, i&apos;m Kumar
             </h1>
           </FadeIn>
