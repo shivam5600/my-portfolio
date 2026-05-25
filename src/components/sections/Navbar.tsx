@@ -37,7 +37,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center justify-between gap-4">
           <a
             href="#top"
-            className="hero-heading font-black tracking-tight whitespace-nowrap text-sm lg:text-base"
+            className="text-haze font-medium uppercase tracking-widest whitespace-nowrap text-sm lg:text-base hover:opacity-70 transition-opacity duration-200"
             aria-label="Home — Kumar Shivam"
           >
             KUMAR SHIVAM
@@ -91,7 +91,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
           >
             <div className="flex items-center justify-between px-5 pt-5">
-              <span className="hero-heading font-black text-base tracking-tight">KUMAR SHIVAM</span>
+              <span className="text-haze font-medium uppercase tracking-widest text-sm">KUMAR SHIVAM</span>
               <button
                 onClick={(e) => {
                   e.stopPropagation()

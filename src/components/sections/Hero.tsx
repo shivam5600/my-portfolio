@@ -13,7 +13,7 @@ export function Hero() {
       className="relative h-screen flex flex-col px-6 md:px-10"
       style={{ overflowX: 'clip' }}
     >
-      {/* Decorative floating analytics icons + impact chips */}
+      {/* Floating analytics icons + skill chips around the hero */}
       <HeroDecor />
 
       {/* Heading + role subline anchored to top */}
@@ -33,39 +33,41 @@ export function Hero() {
         </motion.p>
       </div>
 
-      {/* Portrait — true centre of hero with ambient figure-8 drift */}
-      <FadeIn
-        delay={0.7}
-        y={30}
-        className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 z-10 w-[220px] xs:w-[260px] sm:w-[300px] md:w-[360px] lg:w-[420px] pointer-events-none"
-      >
-        <Magnet padding={300} strength={6}>
-          <motion.div
-            animate={{
-              x: [0, 18, 0, -14, 0],
-              y: [0, -10, -16, -6, 0],
-            }}
-            transition={{
-              duration: 12,
-              ease: 'easeInOut',
-              repeat: Infinity,
-            }}
-            style={{ willChange: 'transform' }}
-          >
-            <motion.img
-              src="/portrait-3d.png"
-              alt="Kumar Shivam"
-              className="w-full h-auto select-none portrait-blend"
-              draggable={false}
-              animate={{ y: [0, -6, 0], rotate: [-1.2, 1.2, -1.2] }}
-              transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity }}
-            />
-          </motion.div>
-        </Magnet>
-      </FadeIn>
+      {/* Portrait — flex-centered in the remaining space (bulletproof centring) */}
+      <div className="flex-1 flex items-center justify-center relative z-10 min-h-0">
+        <FadeIn
+          delay={0.7}
+          y={30}
+          className="w-[200px] xs:w-[240px] sm:w-[280px] md:w-[340px] lg:w-[400px] pointer-events-none"
+        >
+          <Magnet padding={350} strength={5}>
+            <motion.div
+              animate={{
+                x: [0, 60, 30, -45, -60, -20, 35, 0],
+                y: [0, -25, 18, -15, 22, -8, -20, 0],
+              }}
+              transition={{
+                duration: 18,
+                ease: 'easeInOut',
+                repeat: Infinity,
+              }}
+              style={{ willChange: 'transform' }}
+            >
+              <motion.img
+                src="/portrait-3d.png"
+                alt="Kumar Shivam"
+                className="w-full h-auto select-none portrait-blend"
+                draggable={false}
+                animate={{ y: [0, -6, 0], rotate: [-1.5, 1.5, -1.5] }}
+                transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity }}
+              />
+            </motion.div>
+          </Magnet>
+        </FadeIn>
+      </div>
 
-      {/* Bottom bar — short subline left, contact button right */}
-      <div className="mt-auto relative z-20 flex justify-between items-end pb-7 sm:pb-8 md:pb-10 gap-4">
+      {/* Bottom bar */}
+      <div className="relative z-20 flex justify-between items-end pb-7 sm:pb-8 md:pb-10 gap-4">
         <FadeIn delay={0.45} y={20}>
           <p
             className="text-haze font-light uppercase tracking-wide leading-snug max-w-[200px] sm:max-w-[260px] md:max-w-[340px]"
@@ -86,7 +88,6 @@ export function Hero() {
   )
 }
 
-/** Per-character reveal: each letter slides up + flips with a small stagger. */
 function AnimatedHeading({ text }: { text: string }) {
   const chars = Array.from(text)
   return (
@@ -94,23 +95,37 @@ function AnimatedHeading({ text }: { text: string }) {
       className="font-black uppercase tracking-tight leading-none whitespace-nowrap text-center text-[11vw] sm:text-[12vw] md:text-[13vw] lg:text-[14vw]"
       aria-label={text}
     >
-      {chars.map((char, i) => (
-        <motion.span
-          key={`${char}-${i}`}
-          aria-hidden
-          className="hero-heading inline-block"
-          initial={{ opacity: 0, y: '0.55em', rotateX: -80 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: 0.2 + i * 0.045,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          style={{ transformOrigin: 'bottom' }}
-        >
-          {char === ' ' ? ' ' : char}
-        </motion.span>
-      ))}
+      {chars.map((char, i) => {
+        // Spaces become fixed-width inline-block spacers so the gap matches the
+        // reference instead of inheriting the default-space width at 14vw,
+        // which renders ~80 px on desktop and looks like a hard split.
+        if (char === ' ') {
+          return (
+            <span
+              key={`sp-${i}`}
+              aria-hidden
+              style={{ display: 'inline-block', width: '0.18em' }}
+            />
+          )
+        }
+        return (
+          <motion.span
+            key={`${char}-${i}`}
+            aria-hidden
+            className="hero-heading inline-block"
+            initial={{ opacity: 0, y: '0.55em', rotateX: -80 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2 + i * 0.045,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{ transformOrigin: 'bottom' }}
+          >
+            {char}
+          </motion.span>
+        )
+      })}
     </h1>
   )
 }

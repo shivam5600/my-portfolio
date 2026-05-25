@@ -31,17 +31,18 @@ SIZE = "1024x1024"
 
 
 HERO_PROMPT = (
-    "Cute friendly stylized 3D cartoon character portrait of a young Indian "
-    "man in his late 20s, in modern animated film style. Short styled dark "
-    "hair with subtle volume on top, big expressive friendly eyes, gentle "
-    "warm smile, light stubble and short beard, smooth cartoon skin shading. "
-    "Just the head and small hint of shoulders, large head proportions in "
-    "stylized 3D animation aesthetic. Centred. Plain pure black background. "
-    "Soft moody studio lighting with gentle warm rim light, subtle magenta "
-    "and teal reflection accents on the cheek and hair. Octane render, "
-    "ultra-detailed but stylized, no realistic photograph, pure cartoon "
-    "stylization. Professional editorial portrait quality. 1:1 square crop, "
-    "head centred."
+    "Cute friendly stylized 3D cartoon FLOATING HEAD ONLY — portrait of just "
+    "the head and face of a young Indian man in his late 20s. NO NECK, NO "
+    "SHOULDERS, NO BODY visible — just the head floating in space cropped at "
+    "the chin/jawline. Short styled dark hair with subtle volume on top, "
+    "large expressive friendly eyes, gentle warm smile, light short beard. "
+    "Stylized cartoon 3D animation aesthetic with large head proportions, "
+    "exaggerated friendly features in modern animated film style. Head "
+    "centred, fills the frame mostly with some background space around it. "
+    "Plain pure black background. Soft moody studio lighting with gentle "
+    "warm rim light, subtle magenta and teal reflection accents on the "
+    "cheek and hair. Octane render quality, ultra-detailed but stylized, no "
+    "realistic photograph, pure cartoon stylization. 1:1 square crop."
 )
 
 
