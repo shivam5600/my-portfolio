@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background: #0c0c0c;
+  color: #d7e2ea;
+  font-family: 'Kanit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(118, 33, 176, 0.55);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2125;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2d33;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-gradient {
+  background: linear-gradient(123deg, #18011f 7%, #b600a8 37%, #7621b0 72%, #be4c00 100%);
+  box-shadow:
+    0 4px 4px rgba(181, 1, 167, 0.25),
+    inset 4px 4px 12px #7721b1;
+  outline: 2px solid #ffffff;
+  outline-offset: -3px;
+}
+
+.glass-tile {
+  background: rgba(215, 226, 234, 0.04);
+  border: 1px solid rgba(215, 226, 234, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Used by the hero portrait. Heavy filter + radial mask so the placeholder JPG
+   background fades into the page until the user drops in a clean 3D PNG. */
+.portrait-blend {
+  filter: contrast(1.05) saturate(0.85) brightness(0.95)
+    drop-shadow(0 25px 60px rgba(0, 0, 0, 0.65));
+  -webkit-mask-image: radial-gradient(
+    ellipse 62% 78% at center,
+    #000 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 62% 78% at center,
+    #000 60%,
+    transparent 100%
+  );
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b600a8, #7621b0, #be4c00);
+  z-index: 100;
+  transform-origin: 0%;
+  width: 100%;
+}
