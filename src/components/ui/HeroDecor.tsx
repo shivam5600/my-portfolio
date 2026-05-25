@@ -53,16 +53,22 @@ const decors: Decor[] = [
   { type: 'icon', Icon: TrendingUp,  top: '38%',  right: '20%', size: 20, color: '#bbccd7', drift: 'd', delay: 1.6, desktopOnly: true },
 
   // ── Skill chips ───────────────────────────────────────────────────────
-  { type: 'chip', label: 'AI / LLM',           top: '28%',  left: '3%',   color: '#b600a8', drift: 'b', delay: 0.5 },
-  { type: 'chip', label: 'Python',             top: '46%',  left: '11%',  color: '#7621b0', drift: 'd', delay: 0.8, desktopOnly: true },
-  { type: 'chip', label: 'SQL',                bottom: '32%', left: '4%', color: '#be4c00', drift: 'a', delay: 1.1 },
-  { type: 'chip', label: 'pandas',             top: '32%',  right: '14%', color: '#7621b0', drift: 'c', delay: 0.6, desktopOnly: true },
-  { type: 'chip', label: 'A/B Testing',        top: '50%',  right: '3%',  color: '#b600a8', drift: 'a', delay: 1.0 },
-  { type: 'chip', label: 'Product Analytics',  bottom: '36%', right: '6%', color: '#bbccd7', drift: 'b', delay: 1.3 },
-  { type: 'chip', label: 'RCA · Cohorts',      bottom: '22%', right: '22%', color: '#bbccd7', drift: 'c', delay: 1.5, desktopOnly: true },
-  { type: 'chip', label: 'Forecasting',        bottom: '24%', left: '24%', color: '#b600a8', drift: 'd', delay: 1.7, desktopOnly: true },
-  { type: 'chip', label: 'Experimentation',    top: '14%',  right: '25%', color: '#7621b0', drift: 'b', delay: 1.2, desktopOnly: true },
-  { type: 'chip', label: 'Vibe Coding',        top: '14%',  left: '24%',  color: '#be4c00', drift: 'a', delay: 1.4, desktopOnly: true },
+  { type: 'chip', label: 'Claude',            top: '13%',  left: '20%',  color: '#be4c00', drift: 'a', delay: 0.4, desktopOnly: true },
+  { type: 'chip', label: 'GPT-5',             top: '14%',  right: '25%', color: '#b600a8', drift: 'b', delay: 0.6, desktopOnly: true },
+  { type: 'chip', label: 'AI / LLM',          top: '28%',  left: '3%',   color: '#b600a8', drift: 'b', delay: 0.5 },
+  { type: 'chip', label: 'Vibe Coding',       top: '24%',  right: '18%', color: '#7621b0', drift: 'd', delay: 0.7, desktopOnly: true },
+  { type: 'chip', label: 'Python',            top: '46%',  left: '11%',  color: '#7621b0', drift: 'd', delay: 0.8, desktopOnly: true },
+  { type: 'chip', label: 'pandas',            top: '32%',  right: '14%', color: '#7621b0', drift: 'c', delay: 0.6, desktopOnly: true },
+  { type: 'chip', label: 'SQL',               bottom: '32%', left: '4%', color: '#be4c00', drift: 'a', delay: 1.1 },
+  { type: 'chip', label: 'A/B Testing',       top: '50%',  right: '3%',  color: '#b600a8', drift: 'a', delay: 1.0 },
+  { type: 'chip', label: 'Product Analytics', bottom: '34%', right: '6%', color: '#bbccd7', drift: 'b', delay: 1.3 },
+  { type: 'chip', label: 'LightGBM',          bottom: '14%', left: '32%', color: '#7621b0', drift: 'c', delay: 1.8, desktopOnly: true },
+  { type: 'chip', label: 'Databricks',        bottom: '12%', right: '32%', color: '#be4c00', drift: 'd', delay: 1.9, desktopOnly: true },
+  { type: 'chip', label: 'RCA · Cohorts',     bottom: '22%', right: '22%', color: '#bbccd7', drift: 'c', delay: 1.5, desktopOnly: true },
+  { type: 'chip', label: 'Forecasting',       bottom: '24%', left: '22%', color: '#b600a8', drift: 'd', delay: 1.7, desktopOnly: true },
+  { type: 'chip', label: 'Experimentation',   top: '38%',   left: '23%', color: '#7621b0', drift: 'a', delay: 1.2, desktopOnly: true },
+  { type: 'chip', label: 'Tableau',           top: '40%',  right: '22%', color: '#be4c00', drift: 'b', delay: 1.4, desktopOnly: true },
+  { type: 'chip', label: 'MixPanel',          top: '60%',  left: '20%',  color: '#bbccd7', drift: 'c', delay: 1.6, desktopOnly: true },
 ]
 
 /** Distinct multi-keyframe drift paths so the field never moves in lockstep. */

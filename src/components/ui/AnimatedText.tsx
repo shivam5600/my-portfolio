@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
-/** Word-by-word entrance animation, fires once when the section scrolls into
- *  view. Each word slides up from y:24 with opacity 0→1, with a small stagger
- *  so the eye reads it as text "arriving" — then it stays. No further work as
- *  the reader scrolls deeper into the section. */
+/** Word-by-word entrance — each word slides up + un-blurs as the section enters
+ *  the viewport. Faster cadence so the paragraph reads quickly without making
+ *  users wait. Gap between words is a margin (not a rendered space character)
+ *  so inline-block whitespace collapse can't strip it. */
 export function AnimatedText({
   text,
   className = '',
@@ -17,25 +17,27 @@ export function AnimatedText({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.25 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
+        visible: { transition: { staggerChildren: 0.025 } },
       }}
       aria-label={text}
     >
       {words.map((word, i) => (
         <motion.span
           key={i}
-          className="inline-block"
           variants={{
-            hidden: { opacity: 0, y: 24, filter: 'blur(6px)' },
+            hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
             visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
           }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            display: 'inline-block',
+            marginRight: i < words.length - 1 ? '0.28em' : 0,
+          }}
         >
           {word}
-          {i < words.length - 1 ? ' ' : ''}
         </motion.span>
       ))}
     </motion.p>
