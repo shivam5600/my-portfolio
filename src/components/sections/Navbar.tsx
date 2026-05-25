@@ -31,42 +31,48 @@ export function Navbar() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 px-5 sm:px-6 md:px-10 pt-5 sm:pt-6 md:pt-8 pb-3 backdrop-blur-md bg-ink/40"
+        className="fixed top-0 left-0 right-0 z-50 px-5 sm:px-8 md:px-12 lg:px-16 pt-5 sm:pt-6 md:pt-8 pb-3 backdrop-blur-md bg-ink/40"
       >
-        <div className="flex items-center justify-between">
+        {/* Desktop / tablet — wordmark + 4 nav links + resume distributed across the row */}
+        <div className="hidden md:flex items-center justify-between gap-4">
           <a
             href="#top"
-            className="hero-heading font-black tracking-tight whitespace-nowrap text-base sm:text-lg md:text-xl"
+            className="hero-heading font-black tracking-tight whitespace-nowrap text-sm lg:text-base"
             aria-label="Home — Kumar Shivam"
           >
             KUMAR SHIVAM
           </a>
-
-          {/* Tablet/desktop links */}
-          <div className="hidden md:flex items-center gap-7">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-haze font-medium uppercase tracking-widest text-sm lg:text-base hover:opacity-70 transition-opacity duration-200"
-              >
-                {l.label}
-              </a>
-            ))}
+          {links.map((l) => (
             <a
-              href="/Kumar_Shivam_Resume.pdf"
-              download
-              className="inline-flex items-center gap-1.5 rounded-full border border-haze/40 px-4 py-2 text-haze font-medium uppercase tracking-widest text-xs hover:border-haze hover:bg-haze/5 transition-all duration-300"
+              key={l.href}
+              href={l.href}
+              className="text-haze font-medium uppercase tracking-widest text-sm lg:text-base hover:opacity-70 transition-opacity duration-200"
             >
-              Resume
-              <Download size={14} />
+              {l.label}
             </a>
-          </div>
+          ))}
+          <a
+            href="/Kumar_Shivam_Resume.pdf"
+            download
+            className="inline-flex items-center gap-1.5 rounded-full border border-haze/40 px-4 py-2 text-haze font-medium uppercase tracking-widest text-xs hover:border-haze hover:bg-haze/5 transition-all duration-300"
+          >
+            Resume
+            <Download size={14} />
+          </a>
+        </div>
 
-          {/* Mobile hamburger */}
+        {/* Mobile — wordmark left, hamburger right */}
+        <div className="md:hidden flex items-center justify-between">
+          <a
+            href="#top"
+            className="hero-heading font-black tracking-tight whitespace-nowrap text-sm"
+            aria-label="Home — Kumar Shivam"
+          >
+            KUMAR SHIVAM
+          </a>
           <button
             onClick={() => setOpen(true)}
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-haze/40 text-haze hover:border-haze active:scale-95 transition-all"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-haze/40 text-haze hover:border-haze active:scale-95 transition-all"
             aria-label="Open menu"
           >
             <Menu size={20} />

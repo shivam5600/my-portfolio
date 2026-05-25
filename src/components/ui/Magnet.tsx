@@ -1,24 +1,32 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 type MagnetProps = {
   children: ReactNode
+  /** Distance from element edge at which the magnet starts engaging. */
   padding?: number
+  /** Higher = subtler pull (offset = dist / strength). */
   strength?: number
   className?: string
 }
 
+/** Spring-physics magnetic hover. The element starts at its natural centred
+ *  position and smoothly springs toward the cursor when nearby, smoothly
+ *  springs back to centre otherwise — no CSS transition snap, no jitter. */
 export function Magnet({
   children,
-  padding = 150,
-  strength = 3,
+  padding = 180,
+  strength = 4,
   className,
 }: MagnetProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState({ x: 0, y: 0 })
-  const [active, setActive] = useState(false)
+  const mvX = useMotionValue(0)
+  const mvY = useMotionValue(0)
+  const x = useSpring(mvX, { stiffness: 110, damping: 18, mass: 0.6 })
+  const y = useSpring(mvY, { stiffness: 110, damping: 18, mass: 0.6 })
 
   useEffect(() => {
-    const handle = (e: MouseEvent) => {
+    const onMove = (e: MouseEvent) => {
       const el = ref.current
       if (!el) return
       const r = el.getBoundingClientRect()
@@ -30,30 +38,24 @@ export function Magnet({
         Math.abs(dx) < r.width / 2 + padding &&
         Math.abs(dy) < r.height / 2 + padding
       if (within) {
-        setActive(true)
-        setOffset({ x: dx / strength, y: dy / strength })
+        mvX.set(dx / strength)
+        mvY.set(dy / strength)
       } else {
-        setActive(false)
-        setOffset({ x: 0, y: 0 })
+        mvX.set(0)
+        mvY.set(0)
       }
     }
-    window.addEventListener('mousemove', handle, { passive: true })
-    return () => window.removeEventListener('mousemove', handle)
-  }, [padding, strength])
+    window.addEventListener('mousemove', onMove, { passive: true })
+    return () => window.removeEventListener('mousemove', onMove)
+  }, [padding, strength, mvX, mvY])
 
   return (
-    <div
+    <motion.div
       ref={ref}
       className={className}
-      style={{
-        transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
-        transition: active
-          ? 'transform 0.3s ease-out'
-          : 'transform 0.6s ease-in-out',
-        willChange: 'transform',
-      }}
+      style={{ x, y, willChange: 'transform' }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }
